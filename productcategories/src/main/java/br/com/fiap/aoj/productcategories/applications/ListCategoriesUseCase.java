@@ -6,11 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
-
-import java.util.stream.Stream;
 
 @Service
 public class ListCategoriesUseCase {
@@ -28,12 +24,5 @@ public class ListCategoriesUseCase {
 
 		final PageRequest pagination = PageRequest.of(page, size);
 		return categoryRepository.findAll(pagination);
-	}
-
-	private Query buildQueryByContainsTag(final String tag) {
-		final Query query = new Query();
-		query.addCriteria(Criteria.where("tag").regex(tag));
-
-		return query;
 	}
 }

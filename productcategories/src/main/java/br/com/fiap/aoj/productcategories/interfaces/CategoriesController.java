@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 import static org.springframework.http.HttpStatus.*;
 
 @RestController
-@RequestMapping(path = "${api.version.v1:/v1}/tags")
+@RequestMapping(path = "${api.version.v1:/v1}/categories")
 class CategoriesController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CategoriesController.class);

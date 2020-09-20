@@ -1,7 +1,6 @@
 package br.com.fiap.aoj.productcategories.applications;
 
 import br.com.fiap.aoj.productcategories.data.CategoryRepository;
-import br.com.fiap.aoj.productcategories.domain.CategoryDomain;
 import br.com.fiap.aoj.productcategories.domain.ProductId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,9 +27,10 @@ public class AddProductOnCategoryUseCase {
 			});
 		}catch (Exception exception){
 			LOGGER.error("ex(message={}, cause={})", exception.getMessage(), exception);
+			throw new RuntimeException(
+					String.format("Falha ao registrar o produto=%s para a categoria=%s",
+							productId.getProductId(),
+							name));
 		}
 	}
-
-	//TODO: Realizar implementação de recebimento de evento
-
 }
